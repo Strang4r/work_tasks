@@ -13,14 +13,14 @@ def tr_logger(client_id, dollar_balance):
         for i in range(len(client_id)):
             cursor.execute(insert_q, (client_id.pop(0), dollar_balance.pop(0)))
             connection.commit()
-        print('очередь транзакций успешно обновлена')
+        print('очередь транзакций успешно обновлена ')
     except (Exception, psycopg2.DatabaseError) as error:
         print('ошбика в транзакции. отмена транзакции', error)
         connection.rollback()
     if connection:
         cursor.close()
         connection.close()
-        print('соединение с postgresql закрыто')
+        print('соединение с postgresql закрыто ')
 
 
 def transaction_worker():
